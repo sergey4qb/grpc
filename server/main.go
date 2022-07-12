@@ -13,26 +13,6 @@ var (
 	port = flag.Int("port", 50051, "The Server port")
 )
 
-//type Server struct {
-//	pb.UnimplementedUserServer
-//}
-//
-////func (s *Server) CreateUser(ctx context.Context, data *pb.UserData) (*pb.Response, error) {
-////
-////	return &pb.Response{
-////		Name: data.Name,
-////		Surname:  data.Surname,
-////	}, nil
-////}
-////
-////func (s *Server) mustEmbedUnimplementedUserServer() {
-////	panic("implement me")
-////}
-//
-////func (r *User) CreateUser(context.Context, *pb.UserData) (*pb.Response, error) {
-////
-////}
-
 func main() {
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", *port))
 	if err != nil {
