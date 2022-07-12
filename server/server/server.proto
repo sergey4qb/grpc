@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+
+option go_package = "training_grpc/";
+
+
+service User {
+  rpc CreateUser(UserData) returns (id) {}
+  rpc GetUserByID(id) returns (UserData) {}
+  rpc UpdateUserByID(UpdateUserData) returns (UserData) {}
+  rpc DeleteUserByID(id) returns (Empty) {}
+}
+message UserData {
+  optional id id = 1;
+  string name = 2;
+  string surname = 3;
+  string currentLivePlace = 4;
+  string currentPosition = 5;
+}
+message Empty{}
+//message Error {
+//  required string error = 1;
+//}
+message UpdateUserData{
+  id id = 1;
+  UserData userdata = 2;
+}
+
+message id {
+  uint32 uuid = 1;
+}
+//message GetUserRequest{
+//  int64 uuid = 1;
+//}
